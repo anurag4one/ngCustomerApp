@@ -1,0 +1,26 @@
+<form (ngSubmit)="findCustomer()">
+  <div class="form group">
+    <label>Enter phone number</label><br>
+    <input type="text" [(ngModel)]=cphone name="cphone"><br><br>
+  </div>
+  <div class="form group">
+    <button type="submit" class="btn btn-success">Search Customer</button>
+  </div>
+</form>
+
+<div [hidden]="!submitted">
+  <table class="table table-bordered">
+    <tr>
+      <th>Customer name</th>
+      <th>Customer Age</th>
+      <th>Customer phone number</th>
+      <th>Customer email id</th>
+    </tr>
+    <tr>
+      <td>{{customer.name}}</td>
+      <td>{{customer.age}}</td>
+      <td>{{customer.phone}}</td>
+      <td>{{customer.mail}}</td>
+    </tr>
+  </table>
+</div>

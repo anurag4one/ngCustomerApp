@@ -1,0 +1,35 @@
+<form (ngSubmit)="addCustomer()" #addForm="ngForm">
+  <div class="form-group">
+    <label>Enter Customer Name</label><br>
+    <input type="text" [(ngModel)]=customer.name name="name" #name=ngModel placeholder="Enter you name ..." 
+    pattern="[A-Z][a-z]{3,20}"><br>
+    <span *ngIf="name.touched && name.invalid && (name.errors.required || name.errors.pattern)" class="alert-warning">
+      Invalid name or field Empty !!
+    </span>
+  </div>
+  <div class="form-group">
+    <label>Enter Age</label><br>
+    <input type="number" [(ngModel)]=customer.age name="age" #age=ngModel placeholder="Enter your age ..." required pattern="[1-9][0-9]"><br>
+    <span *ngIf="age.touched && age.invalid && (age.errors.required || age.errors.pattern)" class="alert-warning">
+        Invalid Age or field Empty !!
+      </span>
+  </div>
+  <div class="form group">
+    <label>Enter phone number</label><br>
+    <input type="text" [(ngModel)]=customer.phone name="phone" #phone=ngModel required pattern="[6-9][0-9]{9}"><br>
+    <span *ngIf="phone.touched && phone.invalid && (phone.errors.required || phone.errors.pattern)" class="alert-warning">
+        Invalid phone number or field Empty !!
+      </span>
+  </div>
+  <div class="form group">
+    <label>Enter email-id</label><br>
+    <input type="text" [(ngModel)]=customer.mail name="mail" #mail=ngModel required pattern="[1-z0-9.-_%+]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
+    <span *ngIf="mail.touched && mail.invalid && (mail.errors.required || mail.errors.pattern)" class="alert-warning">
+        Invalid email id or field Empty !!
+      </span>
+  </div>
+  <div class="form group">
+    <br><br>
+    <button class="btn btn-success" type="submit" [disabled]="!addForm.valid">Add Customer</button>
+  </div>
+</form>

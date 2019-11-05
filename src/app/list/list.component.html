@@ -1,0 +1,15 @@
+<table class="table table-bordered">
+  <tr>
+    <th (click)="sortByName()"><u>Customer Name</u></th>
+    <th (click)="sortByAge()"><u>Customer Age</u></th>
+    <th>Customer phone number</th>
+    <th>Customer email id</th>
+  </tr>
+  <tr *ngFor="let cus of customers;let i = index">
+    <td>{{cus.name}}</td>
+    <td>{{cus.age}}</td>
+    <td>{{cus.phone}}</td>
+    <td>{{cus.mail}}</td>
+    <td><button class="btn btn-warning" (click)="deleteCustomer(i)">Delete</button></td>
+  </tr>
+</table>
